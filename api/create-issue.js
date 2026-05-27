@@ -13,6 +13,9 @@ module.exports = async (req, res) => {
   const body = `**Nome:** ${nome}\n**Cidade:** ${cidade || '—'}\n**Nota:** ${nota || '—'}\n\n${mensagem}`;
 
   try {
+    const MODERATION = (process.env.MODERATION || 'true') === 'true';
+    const labels = MODERATION ? ['pending'] : ['mural'];
+
     const r = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/issues`, {
       method: 'POST',
       headers: {
@@ -20,11 +23,11 @@ module.exports = async (req, res) => {
         'Accept': 'application/vnd.github+json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ title, body, labels: ['mural'] })
+      body: JSON.stringify({ title, body, labels })
     });
     const data = await r.json();
     if (!r.ok) return res.status(500).json({error: data});
-    return res.status(200).json({ok:true, issue: data.html_url});
+    return res.status(200).json({ok:true, issue: data.html_url, moderation: MODERATION, labels});
   } catch (err) {
     console.error(err);
     return res.status(500).json({error:'Unexpected error'});

@@ -18,8 +18,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px}
 .lead{font-size:1.125rem;margin-bottom:18px;opacity:0.95}
 .hero-image{width:360px;height:220px;border-radius:12px;background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));box-shadow:0 8px 30px rgba(2,16,41,0.4);backdrop-filter:blur(6px)}
 /* Frosted area to display logo */
-.hero-frost{width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));backdrop-filter:blur(8px);padding:18px}
-.hero-logo{max-width:80%;height:auto;filter:drop-shadow(0 6px 18px rgba(2,16,41,0.5));}
+.hero-frost{width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));backdrop-filter:blur(8px);padding:0}
+.hero-logo{width:100%;height:auto;max-height:100%;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(2,16,41,0.5));}
 
 /* subtle hero animations */
 .hero-text{opacity:0;transform:translateY(10px);animation:fadeUp .8s ease forwards .2s}

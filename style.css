@@ -3,11 +3,32 @@
 body{background:#f5f8fc;color:#0b1f4d}
 nav{display:flex;justify-content:space-between;align-items:center;padding:20px}
 .logo{height:70px;border-radius:12px}
-.hero{background:linear-gradient(135deg,#0b1f4d,#1e73d8);color:#fff;padding-bottom:60px}
-.hero-content{text-align:center;padding:60px 20px}
-.hero h1{font-size:2.4rem;margin-bottom:15px}
-.hero p{font-size:1.1rem;margin-bottom:20px}
-.btn{background:#25D366;color:#fff;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:bold}
+.hero{
+	color:#fff;
+	padding-bottom:60px;
+	background-image: linear-gradient(180deg, rgba(6,16,34,0.35), rgba(6,16,34,0.55)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80');
+	background-size:cover;
+	background-position:center right;
+	position:relative;
+}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg, rgba(3,10,30,0.6) 0%, rgba(3,10,30,0.25) 55%, rgba(3,10,30,0.6) 100%)}
+.hero-content{display:flex;gap:30px;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:60px 20px;position:relative;z-index:2}
+.hero-text{max-width:680px}
+.hero h1{font-size:2.6rem;margin-bottom:12px;line-height:1.05;text-shadow:0 6px 18px rgba(2,16,41,0.55)}
+.lead{font-size:1.125rem;margin-bottom:18px;opacity:0.95}
+.hero-image{width:360px;height:220px;border-radius:12px;background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));box-shadow:0 8px 30px rgba(2,16,41,0.4);backdrop-filter:blur(6px)}
+.btn{display:inline-block;padding:14px 22px;border-radius:12px;text-decoration:none;font-weight:700}
+.btn.primary{background:linear-gradient(90deg,#00d4ff,#7c4dff);color:#021029}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff;padding:10px 16px}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.14);padding:10px 16px;margin-left:8px}
+.hero-ctas{margin-bottom:18px}
+.trust{display:flex;gap:18px;list-style:none;margin-top:8px;padding:0;color:rgba(255,255,255,0.9);font-weight:600}
+
+@media(max-width:900px){
+	.hero-content{flex-direction:column;align-items:flex-start;padding:40px 18px}
+	.hero-image{width:100%;height:180px}
+	.hero h1{font-size:1.9rem}
+}
 .section{padding:50px 20px;max-width:1100px;margin:auto}
 .section h2{text-align:center;margin-bottom:25px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
